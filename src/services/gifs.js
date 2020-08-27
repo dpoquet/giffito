@@ -1,26 +1,49 @@
-const apiKey = 'Ve0fZYkJ27CSHXwFY9yhRhjcU9ASrbEW';
+import { API_URL, API_KEY } from './constants';
+import { handleError } from './errorHandler';
 
-export function searchGifs({keyword = 'homer', limit = 25 } = {}) {
-    const endpointURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=${limit}&offset=0&rating=g&lang=en`;
-    return fetch(endpointURL).then(res => res.json()).then(response => {
-        const {data} = response;
-        const gifsImages = data.map(item => {
-            const { id, title } = item;
-            const url = item.images.downsized_medium.url;
+export async function searchGifs({ keyword = "homer", limit = 25 } = {}) {
+  const endpointURL = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=0&rating=g&lang=en`;
 
-            return {
-                id,
-                title,
-                url
-            };
-        });
-        return gifsImages;
+  try {
+    const response = await fetch(endpointURL);
+
+    if (!response.ok) {
+      handleError(response.status);
+    }
+
+    const { data } = await response.json();
+  
+    const gifsImages = data.map((item) => {
+      const { id, title } = item;
+      const url = item.images.downsized_medium.url;
+  
+      return {
+        id,
+        title,
+        url,
+      };
     });
+  
+    return gifsImages;
+  } catch (err) {
+    throw new Error(err);
+  }
 }
 
-export function getGifData(id = null) {
-    const endpointURL = `https://api.giphy.com/v1/gifs/${id}?api_key=${apiKey}`;
-    return fetch(endpointURL).then(res => res.json()).then(response => {
-        return response.data;
-    });
+export async function getGifData(id = null) {
+  const endpointURL = `${API_URL}/gifs/${id}?api_key=${API_KEY}`;
+  
+  try {
+    const response = await fetch(endpointURL);
+
+    if (!response.ok) {
+      handleError(response.status);
+    }
+
+    const { data } = await response.json();
+
+    return data;
+  } catch (err) {
+    throw new Error(err);
+  }
 }

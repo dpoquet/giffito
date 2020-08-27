@@ -1,36 +1,52 @@
-.App {
-  text-align: center;
+*, *:before, *:after {
+  box-sizing: border-box;
 }
 
 header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
 }
 
 .nav {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+	align-items: center;
 }
 
-  .nav li { margin-right: 30px; }
-  .nav li:last-child { margin-right: 0; }
-    .nav li a { 
-      font-size: 1.5em;
-      color: blue;
-      text-decoration: none;
-    }
+.nav li {
+	margin-right: 30px;
+}
+.nav li:last-child {
+	margin-right: 0;
+}
+.nav li a {
+	font-size: 1.5em;
+	color: blue;
+	text-decoration: none;
+}
+
+
+body {
+  font-size: 1em;
+	color: white;
+	background-color: #282c34;
+}
+
+.App-wrapper {
+  display: flex;
+  flex-direction: column;
+	width: 100%;
+	min-height: 100vh;
+	overflow: hidden;
+}
 
 .App-content {
   width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-  font-size: 1em;
-  color: white;
-  background-color: #282c34;
-  text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px 80px 30px;
 }
