@@ -11,7 +11,7 @@ export async function searchGifs({ keyword = "homer", limit = 25 } = {}) {
       handleError(response.status);
     }
 
-    const { data } = await response.json();
+    const { data, pagination } = await response.json();
   
     const gifsImages = data.map((item) => {
       const { id, title } = item;
@@ -23,8 +23,11 @@ export async function searchGifs({ keyword = "homer", limit = 25 } = {}) {
         url,
       };
     });
-  
-    return gifsImages;
+
+    return {
+      total: pagination.total_count,
+      list: gifsImages
+    };
   } catch (err) {
     throw new Error(err);
   }

@@ -1,0 +1,18 @@
+.o-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+  .o-header__logo {
+    margin: 0;
+    width: 150px;
+    cursor: pointer;
+  }
+
+    .o-header__logo img {
+      max-width: 100%;
+      height: auto;
+    }

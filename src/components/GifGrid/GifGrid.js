@@ -1,8 +1,12 @@
 import React from "react";
 import Gif from "../../components/Gif/Gif";
 import './GifGrid.css';
+import Loading from "../../components/Loading";
 
-export default function GifGrid({ gifs }) {
+export default function GifGrid({ gifs, isLoading }) {
+
+  if (isLoading) return <Loading />; 
+
 	return (
 		<section className="GifGrid">
       {

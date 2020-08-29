@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getGifData } from "../../services/gifs";
 import { Redirect } from "wouter";
+import './Detail.css';
 
 export default function DetailPage({ params }) {
 	const { id } = params;
@@ -33,15 +34,18 @@ export default function DetailPage({ params }) {
 
 	if (!gifData) return null;
 
+	console.log(gifData);
+
 	return (
-		<section className="GifList-item">
+		<section className="GifItem">
 			<h1>{gifData.title}</h1>
 			<img
 				src={getImageUrl(gifData.images)}
 				alt={gifData.alt}
 				title={gifData.title}
 			/>
-			<a href={gifData.url} target="_blank">
+			<input className="GifItem-input" type="text" readonly value={getImageUrl(gifData.images)} />
+			<a className="GifItem-link" href={gifData.url} target="_blank" rel="noopener noreferrer">
 				Link to Giphy
 			</a>
 		</section>
