@@ -1,9 +1,28 @@
-import React from "react";
-import "../../App.css";
-import SearchForm from "../../components/SearchForm";
+import React, { useEffect, useState } from "react";
+import SearchForm from "components/SearchForm";
+import GifGrid from "components/GifGrid/GifGrid";
+import { useSearchGifs } from "hooks/useSearchGifs";
+import TrendingSearches from "components/TrendingSearches";
+import { getTrendingSearches } from "services/trendings";
 
 function Home() {
-  return <SearchForm />;
+  const { loading, gifList } = useSearchGifs();
+  const [trends, setTrends] = useState([]);
+
+  useEffect(() => {
+    getTrendingSearches().then(setTrends);
+  }, []); 
+
+  return (
+    <>
+      <SearchForm />
+      <section>
+        <h2>Latest search</h2>
+        <GifGrid gifs={gifList} isLoading={loading} />
+        <TrendingSearches trends={trends} />
+      </section>
+    </>
+  )
 }
 
 export default Home;

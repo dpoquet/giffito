@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getGifData } from "../../services/gifs";
+import { getGifData } from "services/gifs";
 import { Redirect } from "wouter";
 import "./Detail.css";
 
@@ -45,7 +45,7 @@ export default function DetailPage({ params }) {
       <input
         className="GifItem-input"
         type="text"
-        readonly
+        readOnly 
         value={getImageUrl(gifData.images)}
       />
       <a

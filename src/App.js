@@ -12,10 +12,10 @@ function App() {
 		<div className="App-wrapper">
 			<Header />
 			<div className="App-content">
-				<Route component={Home} path="/" />
-				<Route component={SearchPage} path="/search/:keyword" />
-				<Route component={DetailPage} path="/:id" />
-				<Route component={ErrorPage} path="/404" />
+					<Route component={Home} path="/" />
+					<Route component={SearchPage} path="/search/:keyword" />
+					<Route component={DetailPage} path="/:id" />
+					<Route component={ErrorPage} path="/404" />
 			</div>
 		</div>
 	);

@@ -1,20 +1,28 @@
+:root {
+	--columns: 1;
+}
+
 .GifGrid {
+	width: 100%;
+	min-height: 500px;
+	overflow: hidden;
+}
+
+.GifGrid-list {
 	display: grid;
-	grid-gap: 10px;
-	grid-template-columns: repeat(1, 1fr);
+	grid-gap: 0.8em;
+	grid-template-columns: repeat(var(--columns), 1fr);
 	align-items: center;
 }
 
 	@media screen and (min-width: 48rem) {
-		.GifGrid {
-			grid-gap: 15px;
-			grid-template-columns: repeat(3, 1fr);
+		:root {
+			--columns: 3;
 		}
 	}
 
 	@media screen and (min-width: 64rem) {
-		.GifGrid {
-			grid-gap: 20px;
-			grid-template-columns: repeat(4, 1fr);
+		:root {
+			--columns: 4;
 		}
 	}

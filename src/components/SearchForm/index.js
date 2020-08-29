@@ -6,12 +6,12 @@ export default function SearchForm({ initialKeyword = "" }) {
   const [query, setQuery] = useState(initialKeyword);
   const [, setLocation] = useLocation();
 
-  function onSubmit(event) {
+  const onSubmit = (event) => {
     event.preventDefault();
     setLocation(`/search/${query}`);
   }
 
-  function onInputChange(event) {
+  const onInputChange = (event) => {
     setQuery(event.target.value);
   }
 

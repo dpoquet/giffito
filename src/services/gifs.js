@@ -1,8 +1,8 @@
 import { API_URL, API_KEY } from './constants';
 import { handleError } from './errorHandler';
 
-export async function searchGifs({ keyword = "homer", limit = 25 } = {}) {
-  const endpointURL = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=0&rating=g&lang=en`;
+export async function searchGifs({ keyword = "homer", limit = 25, page = 0 } = {}) {
+  const endpointURL = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${page * limit}&rating=g&lang=en`;
 
   try {
     const response = await fetch(endpointURL);
