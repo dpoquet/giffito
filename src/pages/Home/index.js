@@ -3,7 +3,7 @@ import "../../App.css";
 import SearchForm from "../../components/SearchForm";
 
 function Home() {
-	return <SearchForm />;
+  return <SearchForm />;
 }
 
 export default Home;

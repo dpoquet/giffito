@@ -12,11 +12,11 @@ export async function searchGifs({ keyword = "homer", limit = 25 } = {}) {
     }
 
     const { data, pagination } = await response.json();
-  
+
     const gifsImages = data.map((item) => {
       const { id, title } = item;
       const url = item.images.downsized_medium.url;
-  
+
       return {
         id,
         title,
@@ -35,7 +35,7 @@ export async function searchGifs({ keyword = "homer", limit = 25 } = {}) {
 
 export async function getGifData(id = null) {
   const endpointURL = `${API_URL}/gifs/${id}?api_key=${API_KEY}`;
-  
+
   try {
     const response = await fetch(endpointURL);
 
