@@ -4,37 +4,35 @@ import { Redirect } from "wouter";
 import "./Detail.css";
 
 export default function DetailPage({ params }) {
-	const { id } = params;
-	const [gifData, setGifData] = useState(null);
-	const [isLoading, setIsLoading] = useState(false);
-	const [isError, setIsError] = useState(false);
+  const { id } = params;
+  const [gifData, setGifData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-	useEffect(() => {
-		setIsLoading(true);
+  useEffect(() => {
+    setIsLoading(true);
 
-		getGifData(id)
-			.then((gifData) => {
-				setGifData(gifData);
-				setIsLoading(false);
-			})
-			.catch((err) => {
-				setIsError(true);
-			});
-	}, [id]);
+    getGifData(id)
+      .then((gifData) => {
+        setGifData(gifData);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsError(true);
+      });
+  }, [id]);
 
-	function getImageUrl(images) {
-		return images.downsized_medium.url || "";
-	}
+  function getImageUrl(images) {
+    return images.downsized_medium.url || "";
+  }
 
-	if (isLoading) {
-		return <p>Loading data...</p>;
-	}
+  if (isLoading) {
+    return <p>Loading data...</p>;
+  }
 
-	if (isError) return <Redirect to="/404" />;
+  if (isError) return <Redirect to="/404" />;
 
-	if (!gifData) return null;
-
-	console.log(gifData);
+  if (!gifData) return null;
 
   return (
     <section className="GifItem">
