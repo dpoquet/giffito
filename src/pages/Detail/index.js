@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getGifData } from "../../services/gifs";
 import { Redirect } from "wouter";
-import './Detail.css';
+import "./Detail.css";
 
 export default function DetailPage({ params }) {
 	const { id } = params;
@@ -9,17 +9,17 @@ export default function DetailPage({ params }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
 
-
-  useEffect(() => {
+	useEffect(() => {
 		setIsLoading(true);
 
 		getGifData(id)
 			.then((gifData) => {
 				setGifData(gifData);
 				setIsLoading(false);
-			}).catch(err => {
-				setIsError(true);
 			})
+			.catch((err) => {
+				setIsError(true);
+			});
 	}, [id]);
 
 	function getImageUrl(images) {
@@ -27,10 +27,10 @@ export default function DetailPage({ params }) {
 	}
 
 	if (isLoading) {
-		return <p>Loading data...</p>
+		return <p>Loading data...</p>;
 	}
 
-	if (isError) return <Redirect to='/404' />;
+	if (isError) return <Redirect to="/404" />;
 
 	if (!gifData) return null;
 
@@ -44,8 +44,18 @@ export default function DetailPage({ params }) {
 				alt={gifData.alt}
 				title={gifData.title}
 			/>
-			<input className="GifItem-input" type="text" readonly value={getImageUrl(gifData.images)} />
-			<a className="GifItem-link" href={gifData.url} target="_blank" rel="noopener noreferrer">
+			<input
+				className="GifItem-input"
+				type="text"
+				readonly
+				value={getImageUrl(gifData.images)}
+			/>
+			<a
+				className="GifItem-link"
+				href={gifData.url}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
 				Link to Giphy
 			</a>
 		</section>

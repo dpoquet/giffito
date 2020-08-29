@@ -10,12 +10,12 @@ export default function SearchPage({ params }) {
 	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
-    setLoading(true);
-    searchGifs({ keyword }).then((gifs) => {
+		setLoading(true);
+		searchGifs({ keyword }).then((gifs) => {
 			setGifList(gifs.list);
 			setTotalGif(gifs.total);
-      setLoading(false);
-    });
+			setLoading(false);
+		});
 	}, [keyword]);
 
 	const title = gifList && !loading ? `${totalGif} results for "${decodeURI(keyword)}" search` : "";
@@ -26,5 +26,5 @@ export default function SearchPage({ params }) {
 			<h1>{title}</h1>
 			<GifGrid gifs={gifList} isLoading={loading} />
 		</>
-	)
+	);
 }

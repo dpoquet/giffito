@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "wouter";
-import './Gif.css';
+import "./Gif.css";
 
 export default function Gif({ id, title, url }) {
 	return (
