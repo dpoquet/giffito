@@ -36,28 +36,28 @@ export default function DetailPage({ params }) {
 
 	console.log(gifData);
 
-	return (
-		<section className="GifItem">
-			<h1>{gifData.title}</h1>
-			<img
-				src={getImageUrl(gifData.images)}
-				alt={gifData.alt}
-				title={gifData.title}
-			/>
-			<input
-				className="GifItem-input"
-				type="text"
-				readonly
-				value={getImageUrl(gifData.images)}
-			/>
-			<a
-				className="GifItem-link"
-				href={gifData.url}
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				Link to Giphy
-			</a>
-		</section>
-	);
+  return (
+    <section className="GifItem">
+      <h1>{gifData.title}</h1>
+      <img
+        src={getImageUrl(gifData.images)}
+        alt={gifData.alt}
+        title={gifData.title}
+      />
+      <input
+        className="GifItem-input"
+        type="text"
+        readonly
+        value={getImageUrl(gifData.images)}
+      />
+      <a
+        className="GifItem-link"
+        href={gifData.url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Link to Giphy
+      </a>
+    </section>
+  );
 }
