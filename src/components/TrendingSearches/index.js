@@ -6,8 +6,6 @@ export default function TrendingSearches({ trends }) {
 
   if (!trends) return null;
 
-  console.log(trends);
-
   return (
     <section className="m-trending">
       <h2 className="m-trending__title">Trending searches</h2>

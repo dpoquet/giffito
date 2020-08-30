@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { getGifData } from "services/gifs";
 import { Redirect } from "wouter";
 import "./Detail.css";
+import { Helmet } from 'react-helmet';
+import Loading from "components/Loading";
 
 export default function DetailPage({ params }) {
   const { id } = params;
@@ -27,7 +29,7 @@ export default function DetailPage({ params }) {
   }
 
   if (isLoading) {
-    return <p>Loading data...</p>;
+    return <Loading />;
   }
 
   if (isError) return <Redirect to="/404" />;
@@ -35,27 +37,32 @@ export default function DetailPage({ params }) {
   if (!gifData) return null;
 
   return (
-    <section className="GifItem">
-      <h1>{gifData.title}</h1>
-      <img
-        src={getImageUrl(gifData.images)}
-        alt={gifData.alt}
-        title={gifData.title}
-      />
-      <input
-        className="GifItem-input"
-        type="text"
-        readOnly 
-        value={getImageUrl(gifData.images)}
-      />
-      <a
-        className="GifItem-link"
-        href={gifData.url}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Link to Giphy
-      </a>
-    </section>
+    <>
+      <Helmet>
+        <title>{gifData.title} | Giffito</title>
+      </Helmet>
+      <section className="GifItem">
+        <h1>{gifData.title}</h1>
+        <img
+          src={getImageUrl(gifData.images)}
+          alt={gifData.alt}
+          title={gifData.title}
+        />
+        <input
+          className="GifItem-input"
+          type="text"
+          readOnly 
+          value={getImageUrl(gifData.images)}
+        />
+        <a
+          className="GifItem-link"
+          href={gifData.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Link to Giphy
+        </a>
+      </section>
+    </>
   );
 }
