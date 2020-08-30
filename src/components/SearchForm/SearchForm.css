@@ -1,17 +1,30 @@
 
 
 .m-search-form {
+  display: flex;
   width: 100%;
   max-width: 800px;
   margin: 0 auto 50px;
 }
 
   .m-search-form__input {
-    width: 100%;
+    width: 75%;
     height: 50px;
     padding: 10px;
     font-size: 1.2rem;
     outline: none;
-    border-radius: 3px;
+    border-radius: 3px 0 0 3px;
     border: none;
+  }
+
+  .m-search-form__button {
+    width: 25%;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 0 3px 3px 0;
+    border: none;
+    background-color: var(--primary);
+    cursor: pointer;
+    font-weight: 600;
   }

@@ -22,6 +22,7 @@ function SearchForm({ initialKeyword = "", onSubmit }) {
         value={decodeURI(keyword)}
         placeholder="Search a gif :)"
       />
+      <button type="submit" className="m-search-form__button">Search</button>
     </form>
   );
 }
