@@ -45,3 +45,21 @@ a {
 }
 
 	a:hover { text-decoration: underline; }
+
+
+
+.a-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 200px;
+	height: 50px;
+	padding: 10px;
+	border: none;
+	background-color: var(--primary);
+	font-family: 'Balsamiq Sans', cursive;
+	font-size: 1em;
+	color: black;
+	font-weight: 600;
+	cursor: pointer;
+}

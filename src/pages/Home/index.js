@@ -17,9 +17,9 @@ function Home() {
     <>
       <SearchForm />
       <section>
-        <h2>Latest search</h2>
-        <GifGrid gifs={gifList} isLoading={loading} />
         <TrendingSearches trends={trends} />
+        <h2>Last search</h2>
+        <GifGrid gifs={gifList} isLoading={loading} />
       </section>
     </>
   )

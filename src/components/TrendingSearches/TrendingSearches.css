@@ -1,0 +1,34 @@
+.m-trending {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+  .m-trending__title {
+    display: block;
+    text-align: center;
+  }
+
+  .m-trending__list {
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+    list-style: none;
+    margin-top: -5px;
+  }
+
+    .m-trending__list li {
+      margin-right: 5px;
+      margin-top: 5px;
+    }
+
+    .m-trending__list li a {
+      display: block;
+      padding: 5px;
+      background-color: var(--secondary);
+      color: var(--main-bg);
+      font-size: 0.9em;
+      text-decoration: none;
+      border-radius: 3px;
+    }
